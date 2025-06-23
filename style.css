@@ -1,11 +1,10 @@
-wrapper-content 
-{
+wrapper-content {
     box-sizing: border-box;
     width: 1200px;
 }
-.header-content 
-{
-    background-color: rgba(54, 54, 54, 0.6);
+
+.header-content {
+    background-color: rgba(54, 54, 54, 0.55);
     height: 70px;
     padding-left: 30px;
     padding-right: 30px;
@@ -13,94 +12,135 @@ wrapper-content
     justify-content: space-between;
     align-items: center;
 }
-.header-nav 
-{
-    width: 330px;
+
+.header-nav {
+    width: 300px;
     display: flex;
     justify-content: space-between;
 }
-body 
-{
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+body {
     background-image: url('taichung.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.75);
     background-blend-mode: multiply;
     margin: 0;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    line-height: 1.4;
 }
-img
-{
-    margin-left: 50px;
+
+img {
+    margin-left: 8%;
     margin-top: 90px;
     float: left;
+    border-radius: 7px;
 }
-.link
-{
+
+.link {
     color: #c7c7c7;
 }
-.container
-{
+
+.container {
     display: flex;
     align-items: center;
 }
+
 .text {
-    /*display: flex;*/
-    /*float: right;*/
     justify-content: center;
     align-items: center;
     color: #c7c7c7;
-    margin-left: 100px;
+    margin-left: 14%;
     margin-top: 20px;
     font-size: 25px;
 }
-.main-text
-{
+
+.main-text li {
     justify-content: center;
     align-items: center;
     color: #c7c7c7;
-    margin-left: 100px;
-    margin-top: 65px;
+    margin-top: 75px;
     font-size: 20px;
 }
-.view
-{
-    color: #c7c7c7;
-    margin-top: 500px;
-    margin-left: 75px;
-    display: flex;
-    font-size: 20px;
-    border-radius: 3px;
+
+.view {
+    display: inline-block;
+    margin-top: 70vh;
     padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    color: #c7c7c7;
     border: 2px solid #c7c7c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    }
+
+.view:hover {
+    background-color: #c7c7c7;
+    color: #000000;
 }
-i
-{
+
+i {
     color:#c7c7c7;
     float: left;
     display: block;
     text-align: center;
     bottom: 0;
 }
+
 .image-container {
     position: relative;
     max-width: 100%;
     height: auto;
 }
 
-@media screen and (max-width: 768px) {
-    /* 在小屏幕上調整圖片大小 */
-    .image-container img {
-        width: 100%;
-        height: auto;
-    }
+.text, .img, .view {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .text {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  .view {
+    margin-left: 0;
+    margin-top: 30px;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    /* 在中等屏幕上調整圖片大小 */
     .image-container img {
         width: 50%;
         height: auto;
     }
 }
+
